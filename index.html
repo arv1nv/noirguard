@@ -96,31 +96,52 @@
 
         <h2 style="margin-top: 65px;">Our Portfolio</h2>
         
-        <table style="width:80%; margin-top: 40px;" align="center">
-            <tr>
-                <td style="text-align: center;">
-                    <h4> Before </h4>
-                </td>
-                <td style="text-align: center;">
-                    <h4> After </h4>
-                </td>
-                <td style="text-align: center;">
-                    <h4> After </h4>
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align:center;">
-                    <img src="Noirguard Website/noirguardphotos/beforeseal.jpg" alt="Before" width="350" style="border-radius:10px;">
-                </td>
-                <td style="text-align:center;">
-                    <img src="Noirguard Website/noirguardphotos/afterseal1.jpg" alt="After 1" width="400" style="border-radius:10px;">
-                </td>
-                <td style="text-align:center;">
-                    <img src="Noirguard Website/noirguardphotos/afterseal2.jpg" alt="After 2" width="350" style="border-radius:10px;">
-                </td>
-            </tr>
-        </table>
-    </body>
+    
+
+<h2 style="margin-top: 65px;">Our Portfolio</h2>
+
+<div id="slider" style="max-width: 420px; margin: 40px auto; text-align: center;">
+    <h4 id="slide-title">Before</h4>
+    <img id="slide-img" src="Noirguard Website/noirguardphotos/beforeseal.jpg" alt="Before" width="350" style="border-radius:10px;">
+    <div style="margin-top: 10px;">
+        <button onclick="prevSlide()" style="font-size: 24px;">&#8592;</button>
+        <button onclick="nextSlide()" style="font-size: 24px;">&#8594;</button>
+    </div>
+</div>
+<script>
+const slides = [
+    {
+        title: "Before",
+        img: "Noirguard Website/noirguardphotos/beforeseal.jpg",
+        alt: "Before"
+    },
+    {
+        title: "After",
+        img: "Noirguard Website/noirguardphotos/afterseal1.jpg",
+        alt: "After 1"
+    },
+    {
+        title: "After",
+        img: "Noirguard Website/noirguardphotos/afterseal2.jpg",
+        alt: "After 2"
+    }
+];
+let current = 0;
+function showSlide(idx) {
+    document.getElementById('slide-title').textContent = slides[idx].title;
+    document.getElementById('slide-img').src = slides[idx].img;
+    document.getElementById('slide-img').alt = slides[idx].alt;
+}
+function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+}
+function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+}
+</script>
+
 
     <h2 style="text-align: center; margin-top: 65px;">Contact Us</h2>
     <p class="subtitle" style="text-align: center; margin-top: 0;">
